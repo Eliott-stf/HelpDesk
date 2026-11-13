@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const { buildRouter } = require('./routes');
 const { errorHandler, notFoundHandler } = require('./middleware/errorHandler');
 
@@ -10,6 +11,7 @@ function createApp({ db, config }) {
   app.disable('x-powered-by');
   app.use(cors({ origin: config.corsOrigin, credentials: true }));
   app.use(express.json({ limit: '100kb' }));
+  app.use(cookieParser());
 
   app.use(buildRouter({ db, config }));
 
