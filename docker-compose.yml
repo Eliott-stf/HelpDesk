@@ -1,0 +1,12 @@
+services:
+  mongo:
+    image: mongo:7.0
+    container_name: helpdesk-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - helpdesk-mongo-data:/data/db
+
+volumes:
+  helpdesk-mongo-data:
