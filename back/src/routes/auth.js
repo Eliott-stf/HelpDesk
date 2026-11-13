@@ -13,7 +13,7 @@ const REFRESH_COOKIE = 'refresh_token';
 function buildAuthRouter({ db, config }) {
   const router = express.Router();
 
-  // Le cookie n'est envoyé que vers /auth, en SameSite=Strict, et illisible depuis le JavaScript du front.
+  // Le cookie n'est envoyé que vers /auth, en SameSite=Strict, et illisible depuis le JavaScript du front
   const cookieOptions = {
     httpOnly: true,
     sameSite: 'strict',

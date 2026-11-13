@@ -1,8 +1,8 @@
 const express = require('express');
 const { buildAuthRouter } = require('./auth');
+const { buildTicketsRouter } = require('./tickets');
 
-// Point d'assemblage des routes. Les routes tickets, messages et historique
-// seront montées ici à l'étape suivante du plan.
+// Point d'assemblage 
 function buildRouter({ db, config }) {
   const router = express.Router();
 
@@ -11,6 +11,7 @@ function buildRouter({ db, config }) {
   });
 
   router.use('/auth', buildAuthRouter({ db, config }));
+  router.use('/tickets', buildTicketsRouter({ db, config }));
 
   return router;
 }

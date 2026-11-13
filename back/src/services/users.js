@@ -1,7 +1,7 @@
 const { ObjectId } = require('mongodb');
 const { ROLES } = require('../constants');
 
-// Représentation publique d'un utilisateur : jamais de passwordHash.
+// Représentation d'un utilisateur 
 function publicUser(doc) {
   return { id: doc._id.toString(), email: doc.email, name: doc.name, role: doc.role };
 }
